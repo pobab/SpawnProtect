@@ -19,7 +19,7 @@ import java.util.Iterator;
 public class EventProtection {
     private static final Logger LOGGER = LogUtils.getLogger();
     static String noAccess = ChatFormatting.RED + "Tidak memiliki izin untuk melakukannya";
-    static int range = 150;
+    static int range = 300;
 
     @SubscribeEvent
     public static void onPlayerBreaksBlock(BlockEvent.BreakEvent event) {
