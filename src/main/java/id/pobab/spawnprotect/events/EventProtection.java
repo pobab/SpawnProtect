@@ -2,6 +2,7 @@ package id.pobab.spawnprotect.events;
 
 import com.mojang.logging.LogUtils;
 import id.pobab.spawnprotect.SpawnProtect;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
@@ -17,6 +18,7 @@ import java.util.Iterator;
 @Mod.EventBusSubscriber(modid = SpawnProtect.MODID)
 public class EventProtection {
     private static final Logger LOGGER = LogUtils.getLogger();
+    static String noAccess = ChatFormatting.RED + "Tidak memiliki izin untuk melakukannya";
     static int range = 150;
 
     @SubscribeEvent
@@ -25,7 +27,7 @@ public class EventProtection {
         int z = event.getPos().getZ();
         if (!(x <= range && z <= range && x >= -range && z >= -range)) return;
         if (event.getPlayer().hasPermissions(2)) return;
-        event.getPlayer().sendSystemMessage(Component.nullToEmpty("you dont have access"));
+        event.getPlayer().sendSystemMessage(Component.nullToEmpty(noAccess));
         event.setCanceled(true);
     }
 
@@ -36,7 +38,7 @@ public class EventProtection {
         if (!(x <= range && z <= range && x >= -range && z >= -range)) return;
         if (event.getEntity() instanceof Player player) {
             if (player.hasPermissions(2)) return;
-            player.sendSystemMessage(Component.nullToEmpty("you dont have access"));
+            player.sendSystemMessage(Component.nullToEmpty(noAccess));
             event.setCanceled(true);
         }
     }
@@ -59,7 +61,7 @@ public class EventProtection {
         double z = event.getEntity().getZ();
         if (!(x <= range && z <= range && x >= -range && z >= -range)) return;
         if (event.getEntity().hasPermissions(2)) return;
-        event.getEntity().sendSystemMessage(Component.nullToEmpty("you dont have access"));
+        event.getEntity().sendSystemMessage(Component.nullToEmpty(noAccess));
         event.setCanceled(true);
     }
 
