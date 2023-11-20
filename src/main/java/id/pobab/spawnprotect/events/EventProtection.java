@@ -27,7 +27,7 @@ public class EventProtection {
         int z = event.getPos().getZ();
         if (!(x <= range && z <= range && x >= -range && z >= -range)) return;
         if (event.getPlayer().hasPermissions(2)) return;
-        event.getPlayer().sendSystemMessage(Component.nullToEmpty(noAccess));
+//        event.getPlayer().sendSystemMessage(Component.nullToEmpty(noAccess));
         event.setCanceled(true);
     }
 
@@ -38,7 +38,7 @@ public class EventProtection {
         if (!(x <= range && z <= range && x >= -range && z >= -range)) return;
         if (event.getEntity() instanceof Player player) {
             if (player.hasPermissions(2)) return;
-            player.sendSystemMessage(Component.nullToEmpty(noAccess));
+//            player.sendSystemMessage(Component.nullToEmpty(noAccess));
             event.setCanceled(true);
         }
     }
@@ -61,7 +61,7 @@ public class EventProtection {
         double z = event.getEntity().getZ();
         if (!(x <= range && z <= range && x >= -range && z >= -range)) return;
         if (event.getEntity().hasPermissions(2)) return;
-        event.getEntity().sendSystemMessage(Component.nullToEmpty(noAccess));
+//        event.getEntity().sendSystemMessage(Component.nullToEmpty(noAccess));
         event.setCanceled(true);
     }
 
