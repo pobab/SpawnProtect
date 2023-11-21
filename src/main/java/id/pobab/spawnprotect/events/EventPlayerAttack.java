@@ -8,6 +8,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.slf4j.Logger;
 
+import java.util.Arrays;
+
 @Mod.EventBusSubscriber(modid = SpawnProtect.MODID)
 public class EventPlayerAttack {
     private static final Logger LOGGER = LogUtils.getLogger();
@@ -15,6 +17,8 @@ public class EventPlayerAttack {
 
     @SubscribeEvent
     public static void onPlayerBreaksBlock(AttackEntityEvent event) {
+        String[] target = event.getTarget().getType().toString().split("\\.");
+        if (target[2].equals("pixelmon")) return;
         Player player = event.getEntity();
         int x = player.getBlockX();
         int z = player.getBlockZ();
