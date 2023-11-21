@@ -8,8 +8,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.slf4j.Logger;
 
-import java.util.Arrays;
-
 @Mod.EventBusSubscriber(modid = SpawnProtect.MODID)
 public class EventPlayerAttack {
     private static final Logger LOGGER = LogUtils.getLogger();
