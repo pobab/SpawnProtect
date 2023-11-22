@@ -10,7 +10,6 @@ import org.slf4j.Logger;
 @Mod.EventBusSubscriber(modid = SpawnProtect.MODID)
 public class EventPlayerAttack {
     private static final Logger LOGGER = LogUtils.getLogger();
-    static int range = 300;
 
     @SubscribeEvent
     public static void onPlayerBreaksBlock(AttackEntityEvent event) {
